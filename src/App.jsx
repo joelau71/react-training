@@ -5,11 +5,14 @@ import Contact from './pages/Contact';
 import PageNotFound from './pages/PageNotFound';
 import i18n from './i18n';
 import config from './config';
-import Post from './pages/Post';
 import { ProtectedRoutes } from '../ProtectedRoutes';
 import { Dashboard } from './pages/Dashboard';
 import { Profile } from './pages/Profile';
 import { NavBar } from './components/Navbar';
+import { AuthProvider } from './contexts/AuthContext';
+import { UserProvider } from './contexts/UserContext';
+import { Login } from './pages/Login';
+import { Logout } from './pages/Logout';
 
 function App() {
   const localation = useLocation();
@@ -27,20 +30,25 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar />
-      <Routes>
-        <Route path=":locale">
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="post" element={<Post />} />
-          <Route element={<ProtectedRoutes />}>
-            <Route index element={<Dashboard />} />
-            <Route path="profile" element={<Profile />} />
-          </Route>
-          <Route path="*" element={<PageNotFound />} />
-        </Route>
-      </Routes>
+      <AuthProvider>
+        <UserProvider>
+          <NavBar />
+          <Routes>
+            <Route path=":locale">
+              <Route index element={<Home />} />
+              <Route path="about" element={<About />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="login" element={<Login />} />
+              <Route element={<ProtectedRoutes />}>
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="profile" element={<Profile />} />
+                <Route path="logout" element={<Logout />} />
+              </Route>
+              <Route path="*" element={<PageNotFound />} />
+            </Route>
+          </Routes>
+        </UserProvider>
+      </AuthProvider>
     </div>
   );
 }

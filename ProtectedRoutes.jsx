@@ -1,11 +1,10 @@
+import { useContext } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-
-const useAuth = () => {
-  const user = { loggedIn: false };
-  return user && user.loggedIn;
-};
+import { AuthContext } from './src/contexts/AuthContext';
+import i18n from './src/i18n';
 
 export function ProtectedRoutes() {
-  const isAuth = useAuth();
-  return isAuth ? <Outlet /> : <Navigate to="/" />;
+  const { isAuth, setIsAuth } = useContext(AuthContext);
+  const locale = i18n.language;
+  return isAuth ? <Outlet /> : <Navigate to={`/${locale}`} />;
 }
