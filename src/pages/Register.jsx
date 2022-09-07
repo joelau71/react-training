@@ -22,7 +22,7 @@ export function Register() {
       password,
     };
 
-    await fetch(`${BACKEND_API_BASE}/users/register`, {
+    await fetch(`${BACKEND_API_BASE}/register`, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'appplication/josn' },
