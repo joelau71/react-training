@@ -25,6 +25,7 @@ export function NavBar() {
             <Link to={`${locale}/about`}>About</Link>
             <Link to={`${locale}/contact`}>Contact</Link>
             <Link to={`${locale}/login`}>Login</Link>
+            <Link to={`${locale}/register`}>Register</Link>
           </>
         )}
         {isAuth && (

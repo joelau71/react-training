@@ -13,6 +13,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import { UserProvider } from './contexts/UserContext';
 import { Login } from './pages/Login';
 import { Logout } from './pages/Logout';
+import { Register } from './pages/Register';
 
 function App() {
   const localation = useLocation();
@@ -39,6 +40,7 @@ function App() {
               <Route path="about" element={<About />} />
               <Route path="contact" element={<Contact />} />
               <Route path="login" element={<Login />} />
+              <Route path="register" element={<Register />} />
               <Route element={<ProtectedRoutes />}>
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="profile" element={<Profile />} />

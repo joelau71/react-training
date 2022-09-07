@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "name": "joe lau",
+      "username": "joe lau",
       "email": "joe.lau@hypthon.com",
       "password": "password"
     }
