@@ -16,7 +16,7 @@ export function NavBar() {
   return (
     <div className="container px-8 py-2 mx-auto flex justify-between items-center">
       <div>
-        <img src="./public/vite.svg" />
+        <img src="/vite.svg" />
       </div>
       <div className="flex gap-x-4">
         {!isAuth && (

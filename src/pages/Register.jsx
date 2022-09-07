@@ -22,13 +22,14 @@ export function Register() {
       password,
     };
 
-    const post = await fetch(`${BACKEND_API_BASE}/register`, {
+    await fetch(`${BACKEND_API_BASE}/singup`, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: { 'Content-Type': 'appplication/josn' },
     });
 
-    console.log(post);
+    console.log('okkkkkk');
+
     //ignore validate
     // setUser({
     //   username: username,
@@ -54,7 +55,7 @@ export function Register() {
       </div>
       <div className="mb-4">
         <input
-          type="text"
+          type="email"
           value={email}
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
